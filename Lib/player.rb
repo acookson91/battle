@@ -1,9 +1,21 @@
 class Player
 
-attr_reader :name
+DEFAULT_LIFE = 100
+DEFAULT_DAMAGE = 10
 
-  def initialize(name)
+attr_reader :name, :life
+
+  def initialize(name,life=DEFAULT_LIFE)
     @name = name
+    @life = life
+  end
+
+  def take_on_damage
+    @life -= 10
+  end
+
+  def attack(player)
+    player.take_on_damage
   end
 
 end

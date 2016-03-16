@@ -9,9 +9,16 @@ feature "#hitpoints" do
 end
 
 feature "#attack" do
-  scenario "2.0 As Player 1 I would like attack player 2 and get a confirmation" do
+  scenario "2.0 As Player 1 I would like confirmation of my attack" do
     sign_in_and_play
     click_button('Player 1 Attacks')
     expect(page).to have_text("Terry attacked Ruff")
+  end
+
+  scenario "3.0 As Player 1 I would like my attack to reduce life %" do
+    sign_in_and_play
+    click_button('Player 1 Attacks')
+    click_button('Return to Battle')
+    expect(page).to have_text("Ruff LIFE : 90%")
   end
 end

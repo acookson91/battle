@@ -1,3 +1,9 @@
 <h1> "<%= @player1 %> VS <%= @player2 %> - GAME ON!!!" </h1>
-<h2> <%= @player1 %> LIFE : 100% </h2>
-<h2> <%= @player2 %> LIFE : 100% </h2>
+<h2> <%= @player1 %> LIFE : <%= @player1_life %>% </h2>
+<h2> <%= @player2 %> LIFE : <%= @player2_life %>% </h2>
+
+<a href="/attack">Test</a>
+
+<form action="/attack">
+  <input type='submit' value='Player 1 Attacks'>
+  </form>

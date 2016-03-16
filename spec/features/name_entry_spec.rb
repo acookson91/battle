@@ -3,11 +3,7 @@ require 'capybara'
 
 feature '#Start fight' do
   scenario '1.0 Fill in names' do
-      visit('/')
-      fill_in 'player1', with: "Terry"
-      fill_in 'player2', with: "Ruff"
-      click_button 'Play MOTHERS!'
-
+      sign_in_and_play
       expect(page).to have_text("Terry VS Ruff - GAME ON!!!")
 
   end

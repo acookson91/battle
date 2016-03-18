@@ -32,7 +32,7 @@ class Battle < Sinatra::Base
   get '/attack1' do
     Battle.show_game
     Battle.show_game.attack(Battle.show_game.player_2)
-    if Battle.show_game.player_2.hitpoints == 0
+    if Battle.show_game.player_2.hitpoints <= 0
       redirect '/lose'
     else
       erb :attack1

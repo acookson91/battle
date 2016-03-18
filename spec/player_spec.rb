@@ -19,7 +19,8 @@ describe Player do
 
   describe "#be_attacked" do
     it 'reduces the player hit points' do
-      expect{dave.be_attacked}.to change {dave.hitpoints}.by(-10)
+      srand(4)
+      expect{dave.be_attacked}.to change {dave.hitpoints}.by(-8)
     end
   end
 end

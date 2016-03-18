@@ -13,6 +13,5 @@ class Game
 
   def change_player
       @player_1,@player_2 = @player_2,@player_1
-   end
-
+  end
 end

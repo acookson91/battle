@@ -8,23 +8,31 @@ class Battle < Sinatra::Base
     erb(:index)
   end
 
+  def self.store_game(game)
+    @game = game
+  end
+
+  def self.show_game
+    @game
+  end
+
   post '/names' do
     player1 = Player.new(params[:player_1_name])
     player2 = Player.new(params[:player_2_name])
-    $game  = Game.new(player1, player2)
+    Battle.store_game(Game.new(player1, player2))
+    Battle.show_game
     redirect '/play'
   end
 
   get '/play' do
-    @game = $game
+    Battle.show_game
     erb :play
-
   end
 
   get '/attack1' do
-    @game = $game
-    @game.attack(@game.player_2)
-    if $game.player_2.hitpoints == 0
+    Battle.show_game
+    Battle.show_game.attack(Battle.show_game.player_2)
+    if Battle.show_game.player_2.hitpoints == 0
       redirect '/lose'
     else
       erb :attack1
@@ -32,8 +40,8 @@ class Battle < Sinatra::Base
   end
 
   get '/change_player' do
-    @game = $game
-    @game.change_player
+    Battle.show_game
+    Battle.show_game.change_player
     redirect '/play'
   end
 

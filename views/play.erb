@@ -1,12 +1,12 @@
-<h3> <%= @game.player_1.name %>'s turn </h3>
+<h3> <%= Battle.show_game.player_1.name %>'s turn </h3>
 
-<%= @game.player_1.name %> VS <%= @game.player_2.name %> <br><br>
+<%= Battle.show_game.player_1.name %> VS <%= Battle.show_game.player_2.name %> <br><br>
 
-Your life: <%= @game.player_1.hitpoints %> HP
+Your life: <%= Battle.show_game.player_1.hitpoints %> HP
 
 <br>
 
-<%= @game.player_2.name %>: <%= @game.player_2.hitpoints %> HP
+<%= Battle.show_game.player_2.name %>: <%= Battle.show_game.player_2.hitpoints %> HP
 
 
 <form action='/attack1'>

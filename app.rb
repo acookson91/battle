@@ -18,12 +18,17 @@ class Battle < Sinatra::Base
   get '/play' do
     @game = $game
     erb :play
+
   end
 
   get '/attack1' do
     @game = $game
     @game.attack(@game.player_2)
-    erb :attack1
+    if $game.player_2.hitpoints == 0
+      redirect '/lose'
+    else
+      erb :attack1
+    end
   end
 
   get '/change_player' do
@@ -31,6 +36,12 @@ class Battle < Sinatra::Base
     @game.change_player
     redirect '/play'
   end
+
+  get '/lose' do
+    erb(:loser)
+  end
+
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

@@ -4,10 +4,10 @@
 
 Your life: <%= @game.player_1.hitpoints %> HP
 
-<br><br>
+<br>
 
-<%= @game.player_2.name %> <br>
-  <%= @game.player_2.hitpoints %> HP
+<%= @game.player_2.name %>: <%= @game.player_2.hitpoints %> HP
+
 
 <form action='/attack1'>
   <input type='submit' value='ATTACK!'/>
